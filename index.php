@@ -15,14 +15,14 @@
 								<button type="submit" name="submit">Wyczyść</button>
 						</form>
 					</div>
-          <div class="opcje">
-					<a href="importnaklejki.php">Dodaj nowe kawałki</a>
+          		<div class="opcje">
+					<a href="add.php">Dodaj nowe kawałki</a>
 				</div>
 				<div class="opcje">
-					<a href="importnaklejki.php">Importuj naklejki</a>
+					<a href="import.php">Importuj naklejki</a>
 				</div>
 				<div class="opcje">
-					<a href="includes/find.inc.php">Sprawdź kawałki</a>
+					<a href="find_all.php">Sprawdź kawałki</a>
 				</div>		
 			</div>
 
