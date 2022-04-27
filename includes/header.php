@@ -10,4 +10,5 @@
 </head>
 <body>
 <!-- head -->
+<?php require_once("autoloader.inc.php"); ?>
 <?php //require_once("includes/navbar.php"); ?>
