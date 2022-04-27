@@ -15,11 +15,28 @@ class piece extends dbh {
 
          } else {
 
-              echo "Kawałek dodany poprawnie";
+            echo "Kawałek dodany poprawnie";
 
         }
 
          $stmt = null;
+
+   }
+
+   public function Find_all() {
+
+        $results = $this->connect()->query('SELECT * FROM regal');
+
+        if(!$results){
+
+            echo "Błąd wczytywania widoku regałów";
+
+        } else {
+
+
+            return $results;
+
+        }
 
    }
 
