@@ -6,6 +6,7 @@ class pieceController extends piece {
     private $ilosc;
     private $nrregalu;
     private $data;
+    public $production_pieces=array();
 
     public function __construct($sku, $ilosc, $nrregalu){
 
@@ -25,11 +26,6 @@ class pieceController extends piece {
         } else {
 
             Echo "Któreś z pól jest puste";
-            Echo $this->sku;
-            Echo $this->ilosc;
-            Echo $this->nrregalu;
-            Echo $this->data;
-
 
         }
 
@@ -51,6 +47,32 @@ class pieceController extends piece {
         return $result;
 
     }
+
+
+    public static function Import($file){
+
+        $pieces=array();
+
+        if(empty($file)){
+
+            "Plik nie został zaimportowany!";
+        }
+
+        while(($row = fgetcsv($file, 0, ";")) !==false){
+
+            $pieces['sku']=$row[0];
+            $pieces['ilosc']=$row[1];
+
+            parent::Import_to_Db($pieces['sku'], $pieces['ilosc']);
+
+        }
+
+        echo "Zaimportowane pomyślnie !";
+        
+
+
+    }
+
 
 }
 

@@ -40,5 +40,12 @@ class piece extends dbh {
 
    }
 
+   public static function Import_to_Db($sku, $ilosc){
+
+    $stmt = parent::connect()->prepare('INSERT INTO naklejki (sku, ilosc) VALUES (?,?)');
+    $stmt->execute([$sku,$ilosc]);
+
+   }
+
 }
 
