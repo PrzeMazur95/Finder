@@ -2,34 +2,47 @@
 
 class pieceController extends piece {
 
-    private $sku;
-    private $ilosc;
-    private $nrregalu;
-    private $data;
+    public $id;
+    public $sku;
+    public $ilosc;
+    public $nrregalu;
+    public $data;
     public $production_pieces=array();
 
-    public function __construct($sku, $ilosc, $nrregalu){
+       public function __construct(){
 
-        $this->sku=$sku;
-        $this->ilosc=$ilosc;
-        $this->nrregalu=$nrregalu;
         $this->data=date("Y-m-d");
 
     }
 
     public function Add(){
 
-        if(!$this->EmptyInput()){
-
-            $this->Add_To_Db($this->sku, $this->ilosc, $this->nrregalu, $this->data);
-
-        } else {
-
-            Echo "Któreś z pól jest puste";
-
+            if(!$this->EmptyInput()){
+    
+                $this->Add_To_Db($this->sku, $this->ilosc, $this->nrregalu, $this->data);
+    
+            } else {
+    
+                return false;
+    
+            }
+    
         }
 
+    public function Update(){
+
+         if(!$this->EmptyInput()){
+    
+             $this->Update_in_Db($this->id ,$this->sku, $this->ilosc, $this->nrregalu, $this->data);
+    
+         } else {
+    
+              Echo "Któreś z pól jest puste";
+    
+         }
+    
     }
+    
 
     public function EmptyInput(){
 
@@ -37,14 +50,12 @@ class pieceController extends piece {
 
         if(empty(($this->sku) || $this->ilosc) || ($this->nrregalu) || ($this->data)){
 
-            $result = false;
+            return false;
 
         } else {
 
-            $result = true;
+            return true;
         }
-
-        return $result;
 
     }
 
