@@ -40,6 +40,25 @@ class piece extends dbh {
 
    }
 
+
+    public function Find_specific(){
+
+        $results = $this->connect()->query('SELECT * FROM regal r WHERE sku IN ( SELECT SKU FROM naklejki m WHERE r.ilosc >= m.ilosc ) ORDER BY `r`.`sku` ASC
+        ');
+
+        if(!$results){
+
+            echo "Błąd wyświetlania wyników";
+
+        } else {
+
+            return $results;
+        }
+
+    }
+
+   
+
    public static function Import_to_Db($sku, $ilosc){
 
     $stmt = parent::connect()->prepare('INSERT INTO naklejki (sku, ilosc) VALUES (?,?)');

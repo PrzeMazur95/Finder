@@ -11,5 +11,12 @@ class pieceView extends piece {
 
    }
 
+   public function Show_specific() {
+
+      $results=$this->Find_specific();
+
+      return $results;
+   }
+
 }
 
