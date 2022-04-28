@@ -84,5 +84,26 @@ class piece extends dbh {
 
    }
 
+
+   public function Find_specific_piece($id){
+
+    $result = $this->connect()->prepare('SELECT * FROM regal WHERE id = (?)');
+
+    $result->execute([$id]);
+
+    $piece = $result->fetch(PDO::FETCH_ASSOC);
+
+    if(!$piece){
+
+        return false;
+
+    } else {
+
+        return $piece;
+
+    }
+
+}   
+
 }
 
