@@ -4,7 +4,7 @@
 
   $regal = new pieceView();
 
-  $results = $regal->Find_all();
+  $results = $regal->Show_all();
 
 
 ?>
@@ -34,8 +34,8 @@
         <td><?php echo $row['data']; ?></td>
 
         <td>
-        <a href="edit.php" class="btn btn-primary btn-sm">Edytuj</a>
-        <a href="delete.php" class="btn btn-danger btn-sm">Usuń</a>
+        <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edytuj</a>
+        <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Usuń</a>
         </td>
         
       </tr>
