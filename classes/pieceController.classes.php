@@ -55,7 +55,7 @@ class pieceController extends piece {
 
         if(empty($file)){
 
-            "Plik nie został zaimportowany!";
+            session::set("file","Uwaga !. Plik nie został zaimportowany!");
         }
 
         while(($row = fgetcsv($file, 0, ";")) !==false){
@@ -67,9 +67,8 @@ class pieceController extends piece {
 
         }
 
-        echo "Zaimportowane pomyślnie !";
+        session::set("file", "Plik poprawnie zaimportowany!");
         
-
 
     }
 

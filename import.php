@@ -8,13 +8,16 @@ if(isset($_POST['submit'])){
 
 	if($file===false){
 
-		echo "Błąd przy wczytywaniu pliku CSV";
+		echo "Nie udało się otworzyć pliku!";
+
 		exit();
 
-	}
+	} else {
 
-	$import = pieceController::Import($file);
-	fclose($file);
+		$import = pieceController::Import($file);
+		fclose($file);
+
+	}
 
 }
 
@@ -25,7 +28,8 @@ if(isset($_POST['submit'])){
 	<h5>Zaimportuj dzisiejszy plik produkcyjny w formacie CSV</h5>
 	<hr>
 			
-
+	<?php echo session::get("file"); ?>
+	<?php session::unset("file"); ?>
 	<form class="form-group" action="" method="post" enctype="multipart/form-data">
 
 		<input type="file" name="naklejki" accept=".csv" required/>
