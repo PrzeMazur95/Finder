@@ -15,13 +15,31 @@ class piece extends dbh {
 
          } else {
 
-            echo "Kawałek dodany poprawnie";
+            return true;
 
         }
 
          $stmt = null;
 
    }
+
+   public function Update_in_Db($id, $sku, $ilosc, $nrregalu, $data) {
+
+        $result = $this->connect()->prepare("UPDATE regal SET sku = ?, ilosc = ?, nrregalu = ?, data = ? WHERE id = ?");
+        $result->execute([$sku, $ilosc, $nrregalu, $data, $id]);
+
+        if(!$result){
+
+            echo "Kawałek nie został zaktualizowany";
+
+        } else {
+
+
+            return true;
+
+        }
+    }
+
 
    public function Find_all() {
 
