@@ -4,13 +4,29 @@
 
     if(isset($_POST['Add'])){
 
-    $sku=$_POST['sku'];
-    $ilosc=$_POST['ilosc'];
-    $nrregalu=$_POST['nrregalu'];
 
-    $kawalek = new pieceController($sku, $ilosc, $nrregalu);
+        if(empty($_POST['sku'] || $_POST['ilosc'] || $_POST['nrregalu'])){
 
-    $kawalek->Add();
+            session::set('empty_inputs', "Któreś z pól jest puste!");
+
+        } else {
+
+            $sku=$_POST['sku'];
+            $ilosc=$_POST['ilosc'];
+            $nrregalu=$_POST['nrregalu'];
+
+
+                $kawalek = new pieceController();
+                $kawalek->sku = $sku;
+                $kawalek->ilosc = $ilosc;
+                $kawalek->nrregalu = $nrregalu;
+
+
+                $kawalek->Add();
+
+                session::set('empty_inputs', "Kawałek dodany poprawnie!");
+
+        }
 
     }
 
@@ -20,6 +36,8 @@
 
 <div id="container">
     <form action="" method="post">
+        <p> <?php echo session::get('empty_inputs')  ?></p>
+        <?php session::unset('empty_inputs')  ?>
         <p>Dodaj nowy kawałek do Bazy</p>
         <hr>
         <div class="form-group">
