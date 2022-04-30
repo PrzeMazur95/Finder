@@ -10,6 +10,8 @@
 ?>
 
 <div id="container-result">
+<?php echo session::get("delete"); ?></p>
+<?php echo session::unset("delete"); ?></p>
 <h2>Kawałki produkcyjne</h2>
   <table class="table">
     <thead>
@@ -33,7 +35,7 @@
 
         <td>
         <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edytuj</a>
-        <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm">Usuń</a>
+        <a href="delete.php?id=<?php echo $row['id']; ?>&page=specific" class="btn btn-danger btn-sm">Usuń</a>
         </td>
         
       </tr>

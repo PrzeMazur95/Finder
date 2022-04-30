@@ -7,7 +7,16 @@
         if(pieceController::Delete($_GET['id'])){
 
             session::set("delete", "Kawałek o id " .$_GET['id']. " usunięty pomyślnie !");
-            header("location: find_all.php");
+
+            if($_GET['page']=="specific"){
+
+                header("location: find_specific.php");
+
+            } elseif ($_GET['page']=="all") {
+
+                header("location: find_all.php");
+
+            }
 
         } else {
 
