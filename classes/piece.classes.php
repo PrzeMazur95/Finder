@@ -121,5 +121,35 @@ class piece extends dbh {
 
     }
 
+    public static function Truncate_naklejki(){
+     
+        $result = parent::connect()->prepare('TRUNCATE naklejki');
+
+            if($result->execute()){
+        
+                return true;
+        
+            } else {
+        
+                return false;
+        
+        }
+    }
+
+    public static function Truncate_regal(){
+     
+        $result = parent::connect()->prepare('TRUNCATE regal');
+
+            if($result->execute()){
+        
+                return true;
+        
+            } else {
+        
+                return false;
+        
+        }
+    }
+
 }
 

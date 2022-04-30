@@ -90,13 +90,46 @@ class pieceController extends piece {
             return true;
 
         } else {
-            
+
             return false;
 
         }
 
-  }
+    }
 
+    public static function Truncate($table){
+
+        switch($table){
+
+            case 'naklejki':
+
+                if(parent::Truncate_naklejki()){
+
+                    return true;
+
+                } else {
+
+                    return false;
+                }
+
+            case 'regal':
+
+                if(parent::Truncate_regal()){
+
+                    return true;
+
+                } else {
+
+                    return false;
+                }
+
+            default:
+
+                return false;
+
+        }
+
+    }        
 
 }
 
