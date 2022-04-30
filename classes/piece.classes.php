@@ -43,7 +43,7 @@ class piece extends dbh {
 
    public function Find_all() {
 
-        $results = $this->connect()->query('SELECT * FROM regal');
+        $results = $this->connect()->query('SELECT * FROM regal ORDER BY `nrregalu` ASC');
 
         if(!$results){
 

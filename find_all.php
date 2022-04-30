@@ -13,6 +13,12 @@
 <?php echo session::get("delete"); ?></p>
 <?php echo session::unset("delete"); ?></p>
 <h2>Wyszystkie Kawałki</h2>
+
+<div class="opcje">
+                    
+  <a href="index.php">Powrót do menu głównego</a>
+                                                           
+</div>
   <table class="table">
     <thead>
       <tr>
