@@ -11,4 +11,5 @@
 <body>
 <!-- head -->
 <?php require_once("autoloader.inc.php"); ?>
+<?php session_start(); ?>
 <?php //require_once("includes/navbar.php"); ?>
