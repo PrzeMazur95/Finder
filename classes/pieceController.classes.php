@@ -83,6 +83,20 @@ class pieceController extends piece {
 
     }
 
+    public static function Delete($id){
+
+        if(parent::Delete_this_id($id)){
+
+            return true;
+
+        } else {
+            
+            return false;
+
+        }
+
+  }
+
 
 }
 

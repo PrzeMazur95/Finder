@@ -87,23 +87,39 @@ class piece extends dbh {
 
    public function Find_specific_piece($id){
 
-    $result = $this->connect()->prepare('SELECT * FROM regal WHERE id = (?)');
+        $result = $this->connect()->prepare('SELECT * FROM regal WHERE id = (?)');
 
-    $result->execute([$id]);
+        $result->execute([$id]);
 
-    $piece = $result->fetch(PDO::FETCH_ASSOC);
+        $piece = $result->fetch(PDO::FETCH_ASSOC);
 
-    if(!$piece){
+        if(!$piece){
 
-        return false;
+            return false;
 
-    } else {
+        } else {
 
-        return $piece;
+            return $piece;
+
+        }
+
+    }   
+
+    public static function Delete_this_id($id){
+
+        $result = parent::connect()->prepare('DELETE FROM regal WHERE id = (?)');
+
+        if($result->execute([$id])){
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
 
     }
-
-}   
 
 }
 
