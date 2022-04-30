@@ -37,7 +37,7 @@
 
         <td>
         <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edytuj</a>
-        <a href="delete.php?id=<?php echo $row['id']; ?>&page=all" class="btn btn-danger btn-sm">Usuń</a>
+        <a href="delete.php?id=<?php echo $row['id']; ?>&page=all" class="btn btn-danger btn-sm" onclick="return confirm('Jesteś pewny usunięcia tego kawałka?')">Usuń</a>
         </td>
         
       </tr>
