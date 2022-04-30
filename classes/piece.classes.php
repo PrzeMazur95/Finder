@@ -16,6 +16,8 @@ class piece extends dbh {
          } else {
 
             return true;
+            $stmt = null;
+            exit();
 
         }
 
@@ -31,12 +33,15 @@ class piece extends dbh {
         if(!$result){
 
             echo "Kawałek nie został zaktualizowany";
+            $result = null;
+            exit();
 
         } else {
 
 
             return true;
-
+            $result = null;
+            exit();
         }
     }
 
@@ -48,11 +53,15 @@ class piece extends dbh {
         if(!$results){
 
             echo "Błąd wczytywania widoku regałów";
+            $results = null;
+            exit();
 
         } else {
 
 
             return $results;
+            $result = null;
+            exit();
 
         }
 
@@ -67,10 +76,14 @@ class piece extends dbh {
         if(!$results){
 
             echo "Błąd wyświetlania wyników";
+            $results = null;
+            exit();
 
         } else {
 
             return $results;
+            $results = null;
+            exit();
         }
 
     }
@@ -80,7 +93,20 @@ class piece extends dbh {
    public static function Import_to_Db($sku, $ilosc){
 
     $stmt = parent::connect()->prepare('INSERT INTO naklejki (sku, ilosc) VALUES (?,?)');
-    $stmt->execute([$sku,$ilosc]);
+    
+    if($stmt->execute([$sku,$ilosc])){
+
+        return true;
+        $stmt = null;
+        exit();
+
+    } else {
+
+        return false;
+        $stmt = null;
+        exit();
+
+    }
 
    }
 
@@ -96,10 +122,14 @@ class piece extends dbh {
         if(!$piece){
 
             return false;
+            $result = null;
+            exit();
 
         } else {
 
             return $piece;
+            $result = null;
+            exit();
 
         }
 
@@ -112,10 +142,14 @@ class piece extends dbh {
         if($result->execute([$id])){
 
             return true;
+            $result = null;
+            exit();
 
         } else {
 
             return false;
+            $result = null;
+            exit();
 
         }
 
@@ -128,10 +162,14 @@ class piece extends dbh {
             if($result->execute()){
         
                 return true;
+                $result = null;
+                exit();
         
             } else {
         
                 return false;
+                $result = null;
+                exit();
         
         }
     }
@@ -143,10 +181,14 @@ class piece extends dbh {
             if($result->execute()){
         
                 return true;
+                $result = null;
+                exit();
         
             } else {
         
                 return false;
+                $result = null;
+                exit();
         
         }
     }
