@@ -22,7 +22,10 @@
 					<a href="import.php">Importuj naklejki</a>
 				</div>
 				<div class="opcje">
-					<a href="find_all.php">Sprawdź kawałki</a>
+					<a href="find_specific.php">Sprawdź kawałki produkcyjne</a>
+				</div>
+				<div class="opcje">
+					<a href="find_all.php">Sprawdź wszystkie kawałki</a>
 				</div>		
 			</div>
 
