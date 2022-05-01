@@ -34,10 +34,11 @@ class pieceController extends piece {
          if(!$this->EmptyInput()){
     
              $this->Update_in_Db($this->id ,$this->sku, $this->ilosc, $this->nrregalu, $this->data);
+             session::set("update", "Dane poprawnie zatualizowane!");
     
          } else {
-    
-              Echo "Któreś z pól jest puste";
+            
+            session::set("update", "Coś poszło nie tak!");
     
          }
     
