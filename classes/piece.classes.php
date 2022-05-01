@@ -28,16 +28,14 @@ class piece extends dbh {
    public function Update_in_Db($id, $sku, $ilosc, $nrregalu, $data) {
 
         $result = $this->connect()->prepare("UPDATE regal SET sku = ?, ilosc = ?, nrregalu = ?, data = ? WHERE id = ?");
-        $result->execute([$sku, $ilosc, $nrregalu, $data, $id]);
 
-        if(!$result){
+        if(!$result->execute([$sku, $ilosc, $nrregalu, $data, $id])){
 
-            echo "Kawałek nie został zaktualizowany";
+            return false;
             $result = null;
             exit();
 
         } else {
-
 
             return true;
             $result = null;
