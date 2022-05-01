@@ -41,13 +41,13 @@
         <p>Dodaj nowy kawałek do Bazy</p>
         <hr>
         <div class="form-group">
-            <input class="form-control" id="sku" name="sku" placeholder="Wpisz sku produktu">
+            <input class="form-control" id="sku" name="sku" placeholder="Wpisz sku produktu" required>
         </div>
         <div class="form-group">
-            <input class="form-control" id="ilosc" name="ilosc" placeholder="Wpisz ilość">
+            <input class="form-control" id="ilosc" name="ilosc" placeholder="Wpisz ilość" required>
         </div>
         <div class="form-group">
-            <input class="form-control" id="nrregalu" name="nrregalu" placeholder="Wpisz nr. regału">
+            <input class="form-control" id="nrregalu" name="nrregalu" placeholder="Wpisz nr. regału" required>
         </div>
         <button type="submit" name="Add" class="btn btn-primary">Dodaj</button>
 
