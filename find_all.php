@@ -10,6 +10,7 @@
 ?>
 
 <div id="container-result">
+<?php session::unset("update"); ?></p>
 <?php echo session::get("delete"); ?></p>
 <?php echo session::unset("delete"); ?></p>
 <h2>Wyszystkie Kawałki</h2>
